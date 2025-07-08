@@ -1,5 +1,7 @@
+import 'package:filmler_uygulamasi/ui/cubit/anasayfa_cubit.dart';
 import 'package:filmler_uygulamasi/ui/views/anasayfa.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => AnasayfaCubit())],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        ),
+        home: const Anasayfa(),
       ),
-      home: const Anasayfa(),
     );
   }
 }
