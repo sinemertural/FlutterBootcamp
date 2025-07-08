@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kisiler_uygulamasi/ui/cubit/detay_sayfa_cubit.dart';
 
 import '../../data/entity/kisiler.dart';
 
@@ -17,10 +19,6 @@ class _DetaySayfaState extends State<DetaySayfa> {
 
   var tfKisiAdi = TextEditingController();
   var tfKisiTel = TextEditingController();
-
-  Future<void> guncelle (int kisi_id , String kisi_adi , String kisi_tel) async {
-    print("Kişi Guncelle : $kisi_id - $kisi_adi - $kisi_tel");
-  }
 
   @override
   void initState() {
@@ -44,7 +42,7 @@ class _DetaySayfaState extends State<DetaySayfa> {
               TextField(controller: tfKisiAdi, decoration: InputDecoration(hintText: "Kişi Ad"),),
               TextField(controller: tfKisiTel, decoration: InputDecoration(hintText: "Kişi Tel"),),
               ElevatedButton(onPressed: (){
-                guncelle(widget.kisi.kisi_id, widget.kisi.kisi_adi, widget.kisi.kisi_tel);
+                context.read<DetaySayfaCubit>().guncelle(widget.kisi.kisi_id, tfKisiAdi.text, tfKisiTel.text);
               }, child: Text("Güncelle"))
             ],
           ),
