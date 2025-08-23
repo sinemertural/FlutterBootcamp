@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "279035174026",
+    "project_id": "kisileruygulamasi-5120b",
+    "storage_bucket": "kisileruygulamasi-5120b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279035174026:android:0292409cbdff0488fea173",
+        "android_client_info": {
+          "package_name": "com.example.kisiler_uygulamasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAr3PgiOBdzfNl7KGlVYyWI0GlA8EhoRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
