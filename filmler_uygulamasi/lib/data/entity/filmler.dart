@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class Filmler{
   int id;
   String ad;
@@ -10,4 +12,12 @@ class Filmler{
     required this.resim,
     required this.fiyat
   });
+
+  factory Filmler.formJson(Map<String , dynamic>json){
+    return Filmler(
+        id: json["id"] as int,
+        ad: json["ad"] as String,
+        resim: json["resim"] as String,
+        fiyat: json["fiyat"] as int);
+  }
 }

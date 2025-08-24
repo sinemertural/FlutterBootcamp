@@ -45,7 +45,7 @@ class _AnasayfaState extends State<Anasayfa> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Image.asset("resimler/${filmler?.resim}"),
+                          Image.network("http://kasimadalan.pe.hu/filmler_yeni/resimler/${filmler?.resim}"),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [

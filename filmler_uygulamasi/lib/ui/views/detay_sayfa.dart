@@ -21,7 +21,7 @@ class _DetaySayfaState extends State<DetaySayfa> {
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset("resimler/${widget.film.resim}",),
+            Image.network("http://kasimadalan.pe.hu/filmler_yeni/resimler/${widget.film.resim}"),
             Text("${widget.film.fiyat} ₺", style: TextStyle(fontSize: 45),),
           ],
         ),
