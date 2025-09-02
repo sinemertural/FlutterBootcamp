@@ -1,7 +1,11 @@
 import 'package:bitirme_projesi_php_flutter/core/theme/app_colors.dart';
+import 'package:bitirme_projesi_php_flutter/ui/cubit/home_cubit.dart';
 import 'package:bitirme_projesi_php_flutter/ui/widget/product_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../data/entity/product.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,6 +15,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context.read<HomeCubit>().getAllProducts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,26 +31,22 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.blueAccent,
       ),
       backgroundColor: AppColors.background,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Center(
-            child: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: "Ara",
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0)
-                    )
-                  ),
+      body: BlocBuilder<HomeCubit,List<Product>>(
+        builder: (context , productLists){
+          if(productLists.isNotEmpty){
+            return GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 1 / 1.8
                 ),
-                ProductCard()
-              ],
-            ),
-          ),
-        ),
+                itemCount: productLists.length,
+                itemBuilder: (context, index){
+                  var products = productLists[index];
+                  return ProductCard(product : products);
+                });
+          }else{
+            return const Center();
+          }
+        },
       ),
     );
   }
