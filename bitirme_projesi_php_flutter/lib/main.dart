@@ -1,3 +1,5 @@
+import 'package:bitirme_projesi_php_flutter/ui/cubit/basket_cubit.dart';
+import 'package:bitirme_projesi_php_flutter/ui/cubit/detail_cubit.dart';
 import 'package:bitirme_projesi_php_flutter/ui/cubit/home_cubit.dart';
 import 'package:bitirme_projesi_php_flutter/ui/view/home.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => HomeCubit())],
+      providers: [
+        BlocProvider(create: (context) => HomeCubit()),
+        BlocProvider(create: (context) => DetailCubit()),
+        BlocProvider(create: (context) => BasketCubit())
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,

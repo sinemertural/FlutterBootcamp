@@ -60,7 +60,7 @@ class _ProductCardState extends State<ProductCard> {
                   },
                       child: Icon(Icons.add))
                 ],
-              )
+              ),
             ],
           ),
         ),
